@@ -24,7 +24,7 @@
 
 `java -jar Api-0.0.1-SNAPSHOT.jar`
 
-###REST API
+### REST API
 
 * Application when run in its default mode shall run at 
 
