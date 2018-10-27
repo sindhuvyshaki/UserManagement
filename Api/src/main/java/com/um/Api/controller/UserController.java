@@ -1,8 +1,5 @@
 package com.um.Api.controller;
 
-import java.util.Optional;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,35 +9,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.um.Api.representation.UserRepresentation;
-import com.um.Api.utils.RepresentationToModelConverter;
-import com.um.Management.model.User;
-import com.um.Management.repository.UserRepository;
 
 //www.um.com/api/vi
 @RestController
 @RequestMapping(value = "/api/user")
-public class UserController {
-
-    @Autowired
-    UserRepository userRepo;
-
-    @Autowired
-    RepresentationToModelConverter converter;
+public interface UserController {
 
     @GetMapping(value = "/{id}")
-    public UserRepresentation get(@PathVariable Integer id) {
-        Optional<User> oUser = userRepo.findById(id);
-        return oUser.isPresent() ? new UserRepresentation(oUser.get()) : null;
-    }
+    public UserRepresentation get(@PathVariable Integer id);
 
     @PutMapping(value = "/{id}")
-    public UserRepresentation put(@PathVariable Integer id, @RequestBody UserRepresentation userRepresentation) {
-        User updatedUser = userRepo.save(converter.convertToUser(id, userRepresentation));
-        return new UserRepresentation(updatedUser);
-    }
+    public UserRepresentation put(@PathVariable Integer id, @RequestBody UserRepresentation userRepresentation);
 
     @DeleteMapping(value = "/{id}")
-    public void delete(@PathVariable Integer id) {
-        userRepo.deleteById(id);
-    }
+    public void delete(@PathVariable Integer id);
 }

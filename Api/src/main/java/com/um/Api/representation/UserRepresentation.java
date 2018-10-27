@@ -19,7 +19,10 @@ public class UserRepresentation {
     }
 
     public UserRepresentation(User user) {
-        this(user.getName(), user.getEmail(), user.getAddress());
+        this.name = user.getName();
+        this.email = user.getEmail();
+        this.address = user.getAddress();
+        // this(user.getName(), user.getEmail(), user.getAddress());
         this.id = user.getId();
     }
 
