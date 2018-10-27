@@ -1,6 +1,6 @@
 package com.um.Api.controller;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -16,7 +16,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import com.um.Api.controller.impl.UserCollectionControllerImpl;
 import com.um.Api.controller.impl.UserControllerImpl;
 import com.um.Api.representation.UserRepresentation;
 import com.um.Api.utils.RepresentationToModelConverter;
